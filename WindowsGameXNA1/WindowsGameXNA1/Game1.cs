@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace WindowsGameXNA1
 {
     /// <summary>
@@ -59,7 +58,7 @@ namespace WindowsGameXNA1
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
             //graphics.IsFullScreen = true;
-
+            
             graphics.PreferMultiSampling = true;
 
             Content.RootDirectory = "Content";
@@ -309,6 +308,20 @@ namespace WindowsGameXNA1
                 if (keyState.IsKeyDown(Keys.D))
                 {
                     pos.X += 2 * step;
+                    camera.UpdatePos(pos);
+                    View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
+                }
+
+                if (keyState.IsKeyDown(Keys.R))
+                {
+                    pos.Y += 2 * step;
+                    camera.UpdatePos(pos);
+                    View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
+                }
+
+                if (keyState.IsKeyDown(Keys.F))
+                {
+                    pos.Y -= 2 * step;
                     camera.UpdatePos(pos);
                     View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
                 }
