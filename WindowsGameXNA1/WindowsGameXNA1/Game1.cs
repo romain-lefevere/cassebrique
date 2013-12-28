@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace WindowsGameXNA1
 {
     /// <summary>
@@ -138,9 +139,9 @@ namespace WindowsGameXNA1
             GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
             KeyboardState keyState = Keyboard.GetState();
 
-            float step = 0.025f;
+            float step = 0.05f;
 
-
+            /*
             if (gamepadState.IsConnected)
             {
 
@@ -246,12 +247,13 @@ namespace WindowsGameXNA1
 
             else
             {
+             */ 
                 if (keyState.IsKeyDown(Keys.Escape))
                 {
                     this.Exit();
                 }
 
-                if (keyState.IsKeyDown(Keys.NumPad0))
+                if (keyState.IsKeyDown(Keys.C))
                 {
                     pos = new Vector3(0f, 6f, 25f);
 
@@ -271,28 +273,42 @@ namespace WindowsGameXNA1
                     View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
                 }
 
-                if (keyState.IsKeyDown(Keys.NumPad7))
+                if (keyState.IsKeyDown(Keys.A))
                 {
                     rot.Y += step;
                     camera.UpdateRot(rot);
                 }
 
-                if (keyState.IsKeyDown(Keys.NumPad9))
+                if (keyState.IsKeyDown(Keys.E))
                 {
                     rot.Y -= step;
                     camera.UpdateRot(rot);
                 }
 
-                if (keyState.IsKeyDown(Keys.NumPad8))
+                if (keyState.IsKeyDown(Keys.Z))
                 {
                     pos.Z -= 2 * step;
                     camera.UpdatePos(pos);
                     View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
                 }
 
-                if (keyState.IsKeyDown(Keys.NumPad2))
+                if (keyState.IsKeyDown(Keys.S))
                 {
                     pos.Z += 2 * step;
+                    camera.UpdatePos(pos);
+                    View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
+                }
+
+                if (keyState.IsKeyDown(Keys.Q))
+                {
+                    pos.X -= 2 * step;
+                    camera.UpdatePos(pos);
+                    View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
+                }
+
+                if (keyState.IsKeyDown(Keys.D))
+                {
+                    pos.X += 2 * step;
                     camera.UpdatePos(pos);
                     View = Matrix.CreateLookAt(camera.Position, camera.Target, camera.Up);
                 }
@@ -319,7 +335,7 @@ namespace WindowsGameXNA1
                         rack.Location = new Vector3(rack.Location.X + (0.5f / rackStepDIv), rack.Location.Y, rack.Location.Z);
                 }
 
-            }
+            //}
 
             if (ball.Direction == Vector3.Zero)
             {

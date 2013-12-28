@@ -11,11 +11,18 @@ namespace WindowsGameXNA1
         /// </summary>
         static void Main(string[] args)
         {
-            Trace.WriteLine("starting");
+            //Trace.WriteLine("starting");
 
             using (Game1 game = new Game1())
             {
-                game.Run();
+                try
+                {
+                    game.Run();
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e);
+                }
             }
         }
     }
