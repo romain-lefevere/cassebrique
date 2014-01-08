@@ -140,7 +140,7 @@ namespace WindowsGameXNA1
 
             float step = 0.05f;
 
-            /*
+            /* Gestion de la manette
             if (gamepadState.IsConnected)
             {
 
