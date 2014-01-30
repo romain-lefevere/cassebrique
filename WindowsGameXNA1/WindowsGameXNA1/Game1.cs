@@ -256,6 +256,8 @@ namespace WindowsGameXNA1
                 {
                     pos = new Vector3(0f, 6f, 25f);
 
+                    this.grid.showAll();
+
                     rack.Location = Vector3.Zero;
 
                     rot = Vector3.Zero;

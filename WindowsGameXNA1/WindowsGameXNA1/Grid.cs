@@ -68,6 +68,17 @@ namespace WindowsGameXNA1
             }
         }
 
+        public void showAll()
+        {
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    elements[i][j].Visible = true;
+                }
+            }
+
+        }
 
         public void Update(ref Ball ball)
         {
